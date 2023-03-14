@@ -17,7 +17,7 @@ export class Controller {
     async save(mark) {
         try {
             let response = await axios.post(`https://calculater-b3b16-default-rtdb.firebaseio.com/marks.json`, mark);
-            if (response.status == 200) return mark.id = response.data.name;
+            if (response.status === 200) return mark.id = response.data.name;
         } catch (error) {
             return console.log("Error From save Funtion");
         }
@@ -32,7 +32,7 @@ export class Controller {
     async getData() {
         try {
             let response = await axios.get(`https://calculater-b3b16-default-rtdb.firebaseio.com/marks.json`);
-            if (response.status == 200) {
+            if (response.status === 200) {
                 let array = [];//array of marks
                 let objectV = response.data;//fetch data => dataType is object, so name it objectVariable => objectV.
                 for (const objectKey in objectV) {
@@ -61,7 +61,7 @@ export class Controller {
     async delete(id) {
         try {
             let response = await axios.delete(`https://calculater-b3b16-default-rtdb.firebaseio.com/marks/${id}.json`);
-            return response.status == 200;
+            return response.status === 200;
         } catch (error) {
             return console.log("Error From delete Funtion");
         }
