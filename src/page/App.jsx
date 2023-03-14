@@ -19,6 +19,7 @@ export let App = () => {
         }
     }
 
+    // eslint-disable-next-line
     useEffect(() => { read() }, []);
 
 
